@@ -1,0 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/09 18:07:19 by maeskhai          #+#    #+#             */
+/*   Updated: 2026/04/09 18:07:40 by maeskhai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+
+#include <iostream>
+#include <string>
+#include <exception>
+
+class Form;
+
+class Bureaucrat
+{
+private:
+    const std::string name;
+    int grade;
+
+public:
+    // Canonical form
+    Bureaucrat();
+    Bureaucrat(const std::string& name, int grade);
+    Bureaucrat(const Bureaucrat& other);
+    Bureaucrat& operator=(const Bureaucrat& other);
+    ~Bureaucrat();
+
+    // Getters
+    std::string getName() const;
+    int getGrade() const;
+
+    // Actions
+    void incrementGrade();
+    void decrementGrade();
+    void signForm(Form& form);
+
+    // Exceptions
+    class GradeTooHighException : public std::exception
+    {
+    public:
+        const char* what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception
+    {
+    public:
+        const char* what() const throw();
+    };
+};
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);
+
+#endif
