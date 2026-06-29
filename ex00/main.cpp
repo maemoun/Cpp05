@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 16:49:44 by maeskhai          #+#    #+#             */
-/*   Updated: 2026/04/09 16:50:00 by maeskhai         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:31:02 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,10 @@ int main()
         Bureaucrat a("Alice", 2);
         std::cout << a << std::endl;
 
-        a.incrementGrade(); // should go to 1
+        a.incrementGrade();
         std::cout << a << std::endl;
 
-        a.incrementGrade(); // should throw
-    }
-    catch (std::exception &e)
-    {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        Bureaucrat b("Bob", 151); // invalid
+        a.incrementGrade();
     }
     catch (std::exception &e)
     {

@@ -6,14 +6,13 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 18:07:24 by maeskhai          #+#    #+#             */
-/*   Updated: 2026/04/09 18:08:51 by maeskhai         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:31:40 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-// Constructors
 Form::Form()
     : name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150) {}
 
@@ -42,13 +41,11 @@ Form& Form::operator=(const Form& other)
 
 Form::~Form() {}
 
-// Getters
 std::string Form::getName() const { return name; }
 bool Form::getIsSigned() const { return isSigned; }
 int Form::getGradeToSign() const { return gradeToSign; }
 int Form::getGradeToExecute() const { return gradeToExecute; }
 
-// Logic
 void Form::beSigned(const Bureaucrat& b)
 {
     if (b.getGrade() > gradeToSign)
@@ -56,7 +53,6 @@ void Form::beSigned(const Bureaucrat& b)
     isSigned = true;
 }
 
-// Exceptions
 const char* Form::GradeTooHighException::what() const throw()
 {
     return "Form grade too high!";
@@ -67,7 +63,6 @@ const char* Form::GradeTooLowException::what() const throw()
     return "Form grade too low!";
 }
 
-// Operator <<
 std::ostream& operator<<(std::ostream& out, const Form& f)
 {
     out << f.getName()

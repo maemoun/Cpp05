@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 18:54:12 by maeskhai          #+#    #+#             */
-/*   Updated: 2026/04/09 18:54:14 by maeskhai         ###   ########.fr       */
+/*   Updated: 2026/06/29 18:08:36 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@ void ShrubberyCreationForm::executeAction() const
 {
     std::ofstream file((target + "_shrubbery").c_str());
 
-    file << "  ^  \n";
-    file << " /|\\ \n";
-    file << "/_|_\\\n";
+file << "          * " << std::endl
+     << "         /.\\ " << std::endl
+     << "        /..'\\ " << std::endl
+     << "        /'.'\\ " << std::endl
+     << "       /.''.'\\ " << std::endl
+     << "       /.'.'.\\ " << std::endl
+     << "      /'.''.'.\\ " << std::endl     
+     << "      ^^^[_]^^^ " << std::endl;
+
 }

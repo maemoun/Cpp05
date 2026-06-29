@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 18:07:27 by maeskhai          #+#    #+#             */
-/*   Updated: 2026/04/09 18:08:42 by maeskhai         ###   ########.fr       */
+/*   Updated: 2026/06/29 17:45:34 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,18 @@ private:
     const int gradeToExecute;
 
 public:
-    // Canonical form
     Form();
     Form(const std::string& name, int gradeToSign, int gradeToExecute);
     Form(const Form& other);
     Form& operator=(const Form& other);
     ~Form();
 
-    // Getters
     std::string getName() const;
     bool getIsSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;
 
-    // Action
     void beSigned(const Bureaucrat& b);
-
-    // Exceptions
     class GradeTooHighException : public std::exception
     {
     public:
